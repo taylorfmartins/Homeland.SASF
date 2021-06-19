@@ -24,7 +24,7 @@ namespace Homeland.SASF.Notification.Controllers
                 var notification = model;
 
                 var accountSid = "AC9be58b8f756d1d53ada4f294fc531761";
-                var authToken = "86f12a45e3997a4dd57445c8c95478fc";
+                var authToken = "f1ca2165fc4fac10975d6168cd860657";
                 TwilioClient.Init(accountSid, authToken);
 
                 var messageOptions = new CreateMessageOptions(
