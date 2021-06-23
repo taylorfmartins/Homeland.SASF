@@ -1,0 +1,63 @@
+﻿@model Setor
+
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">Setor</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Setor</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Novo" asp-antiforgery="true" method="post">
+                        <h6 class="heading-small text-muted mb-4">Informações</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label asp-for="Nome" class="form-control-label" for="input-username">Nome</label>
+                                        <input asp-for="Nome" type="text" id="input-username" class="form-control" placeholder="Produção">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label asp-for="MatriculaResponsavel" class="form-control-label" for="input-email">Responsável</label>
+                                        <input asp-for="MatriculaResponsavel" type="number" id="input-email" class="form-control" placeholder="Id do Responsável (Ex: 1, 2, 3 ...)">
+                                        <span asp-validation-for="MatriculaResponsavel" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4" />
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mt-4">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

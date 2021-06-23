@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Homeland.SASF.Security\Homeland.SASF.Security.csproj" />
     <ProjectReference Include="..\SASF.WebAPI.Model\Homeland.SASF.Model.csproj" />
   </ItemGroup>
 

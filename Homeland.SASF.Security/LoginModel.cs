@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Homeland.SASF.Seguranca
+namespace Homeland.SASF.Security
 {
     public class LoginModel
     {
