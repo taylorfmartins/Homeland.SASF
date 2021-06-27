@@ -1,5 +1,6 @@
 ﻿using Homeland.SASF.Model;
 using Homeland.SASF.Persistencia;
+using Homeland.SASF.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,12 +18,28 @@ namespace Homeland.SASF.WebApp.Controllers
             _repo = repository;
         }
 
+        private IEnumerable<Setor> Carregar()
+        {
+            return _repo.All
+                .ToList();
+        }
+
         public IActionResult Index()
+        {
+            var model = new SetorViewModel
+            {
+                Setores = Carregar()
+            };
+
+            return View(model);
+        }
+
+        public IActionResult Novo()
         {
             return View();
         }
 
-        public IActionResult Novo(Setor model)
+        public IActionResult Adicionar(Setor model)
         {
             if (ModelState.IsValid)
             {

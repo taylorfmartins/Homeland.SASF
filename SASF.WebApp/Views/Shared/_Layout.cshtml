@@ -17,6 +17,8 @@
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="~/css/argon.css?v=1.2.0" type="text/css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/vendor/animate.css/animate.min.css" />
 </head>
 
 <body>
@@ -41,7 +43,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="Setor">
+                            <a class="nav-link" asp-controller="Setor" asp-action="Index">
                                 <i class="ni ni-building text-orange"></i>
                                 <span class="nav-link-text">Setores</span>
                             </a>
@@ -286,11 +288,66 @@
                 </div>
             </div>
         </nav>
-        @RenderBody()
+
+        <!-- Header -->
+        <!-- Header -->
+        <div class="header bg-primary pb-6">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row align-items-center py-4">
+                        <div class="col-lg-6 col-7">
+                            <h6 class="h2 text-white d-inline-block mb-0">@ViewContext.RouteData.Values["controller"].ToString()</h6>
+                            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home"><i class="fas fa-home"></i></a></li>
+                                    @if (!String.IsNullOrEmpty(ViewContext.RouteData.Values["action"].ToString()) && ViewContext.RouteData.Values["action"].ToString() != "Index")
+                                    {
+                                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()">@ViewContext.RouteData.Values["controller"].ToString()</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">@ViewContext.RouteData.Values["action"].ToString()</li>
+                                    }
+                                    else
+                                    {
+                                        <li class="breadcrumb-item active" aria-current="page"><a asp-action="Index" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()">@ViewContext.RouteData.Values["controller"].ToString()</a></li>
+                                    }
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-6 col-5 text-right">
+                            <a asp-action="Novo" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" class="btn btn-sm btn-neutral">Novo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page content -->
+        <div class="container-fluid mt--6">
+
+            @RenderBody()
+
+            <!-- Footer -->
+            <footer class="footer pt-0">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6">
+                        <div class="copyright text-center  text-lg-left  text-muted">
+                            &copy; 2021 <a href="https://faculdadedombosco.net/" class="font-weight-bold ml-1" target="_blank">Homeland Team</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                            <li class="nav-item">
+                                <a href="https://faculdadedombosco.net/" class="nav-link" target="_blank">Faculdade DomBosco</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
+
     <!-- Argon Scripts -->
     <!-- Core -->
     <script src="~/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
     <script src="~/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/vendor/js-cookie/js.cookie.js"></script>
     <script src="~/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>

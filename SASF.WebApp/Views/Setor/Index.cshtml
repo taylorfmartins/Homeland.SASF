@@ -1,62 +1,79 @@
-﻿@model Setor
+﻿@model SetorViewModel
 
-<div class="header bg-primary pb-6">
-    <div class="container-fluid">
-        <div class="header-body">
-            <div class="row align-items-center py-4">
-                <div class="col-lg-6 col-7">
-                    <h6 class="h2 text-white d-inline-block mb-0">Tables</h6>
-                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#">Setor</a></li>
-                        </ol>
-                    </nav>
-                </div>
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Card header -->
+            <div class="card-header border-0">
+                <h3 class="mb-0">Setores</h3>
             </div>
-        </div>
-    </div>
-</div>
+            <!-- Light table -->
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="id">Código</th>
+                            <th scope="col" class="sort" data-sort="name">Descrição</th>
+                            <th scope="col" class="sort" data-sort="budget">Responsável</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var setor in Model.Setores)
+                        {
+                        <tr>
 
-<div class="container-fluid mt--6">
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h3 class="mb-0">Setor</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <form asp-action="Novo" asp-antiforgery="true" method="post">
-                        <h6 class="heading-small text-muted mb-4">Informações</h6>
-                        <div class="pl-lg-4">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label asp-for="Nome" class="form-control-label" for="input-username">Nome</label>
-                                        <input asp-for="Nome" type="text" id="input-username" class="form-control" placeholder="Produção">
+                            <td>
+                                <span class="name mb-0 text-sm">@setor.Id</span>
+                            </td>
+                            <td>
+                                <span class="name mb-0 text-sm">@setor.Nome</span>
+                            </td>
+                            <td>
+                                <span class="name mb-0 text-sm">@setor.MatriculaResponsavel</span>
+                            </td>
+
+                            <td class="text-right">
+                                <div class="dropdown">
+                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" asp-controller="Setor" asp-action="Editar">Editar</a>
+                                        <a class="dropdown-item" asp-controller="Setor" asp-action="Excluir">Excluir</a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label asp-for="MatriculaResponsavel" class="form-control-label" for="input-email">Responsável</label>
-                                        <input asp-for="MatriculaResponsavel" type="number" id="input-email" class="form-control" placeholder="Id do Responsável (Ex: 1, 2, 3 ...)">
-                                        <span asp-validation-for="MatriculaResponsavel" class="text-danger"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <hr class="my-4" />
-
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary mt-4">Adicionar</button>
-                        </div>
-                    </form>
-                </div>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- Card footer -->
+            <div class="card-footer py-4">
+                <nav aria-label="...">
+                    <ul class="pagination justify-content-end mb-0">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="fas fa-angle-left"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="fas fa-angle-right"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
