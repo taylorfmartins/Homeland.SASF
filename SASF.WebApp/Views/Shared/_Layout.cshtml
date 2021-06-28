@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+    <meta name="description" content="Sistema de Acompanhamento de Saúde do Funcionário">
     <meta name="author" content="Creative Tim">
-    <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+    <title>Homeland - SASF</title>
     <!-- Favicon -->
     <link rel="icon" href="~/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -46,6 +46,12 @@
                             <a class="nav-link" asp-controller="Setor" asp-action="Index">
                                 <i class="ni ni-building text-orange"></i>
                                 <span class="nav-link-text">Setores</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Funcionario" asp-action="Index">
+                                <i class="ni ni-circle-08 text-primary"></i>
+                                <span class="nav-link-text">Funcionários</span>
                             </a>
                         </li>
                     </ul>
@@ -302,7 +308,7 @@
                                     <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home"><i class="fas fa-home"></i></a></li>
                                     @if (!String.IsNullOrEmpty(ViewContext.RouteData.Values["action"].ToString()) && ViewContext.RouteData.Values["action"].ToString() != "Index")
                                     {
-                                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()">@ViewContext.RouteData.Values["controller"].ToString()</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()">@ViewContext.RouteData.Values["controller"].ToString()</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">@ViewContext.RouteData.Values["action"].ToString()</li>
                                     }
                                     else
@@ -329,7 +335,7 @@
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; 2021 <a href="https://faculdadedombosco.net/" class="font-weight-bold ml-1" target="_blank">Homeland Team</a>
+                            &copy; @DateTime.Now.Year <a href="https://faculdadedombosco.net/" class="font-weight-bold ml-1" target="_blank">Homeland Team</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -357,4 +363,7 @@
     <script src="~/vendor/chart.js/dist/Chart.extension.js"></script>
     <!-- Argon JS -->
     <script src="~/js/argon.js?v=1.2.0"></script>
+    <!-- NotifyJs -->
+    <script src="~/js/notify/notify.min.js"></script>
 </body>
+</html>

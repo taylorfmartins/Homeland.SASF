@@ -20,4 +20,11 @@
     <Folder Include="wwwroot\js\notify\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Funcionario\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
