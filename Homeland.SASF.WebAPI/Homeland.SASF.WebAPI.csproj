@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SASF.WebAPI.DAL.Funcionarios\Homeland.SASF.DAL.csproj" />
+    <ProjectReference Include="..\Homeland.SASF.DAL\Homeland.SASF.DAL.csproj" />
+    <ProjectReference Include="..\Homeland.SASF.Model\Homeland.SASF.Model.csproj" />
   </ItemGroup>
 
 </Project>
