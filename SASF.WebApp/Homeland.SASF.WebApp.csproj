@@ -5,12 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BootstrapNotifications" Version="0.3.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Homeland.SASF.Security\Homeland.SASF.Security.csproj" />
+    <ProjectReference Include="..\SASF.WebAPI.DAL.Funcionarios\Homeland.SASF.DAL.csproj" />
     <ProjectReference Include="..\SASF.WebAPI.Model\Homeland.SASF.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\notify\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Funcionario\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
