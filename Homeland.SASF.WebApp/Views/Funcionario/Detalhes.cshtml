@@ -1,0 +1,110 @@
+﻿@model Funcionario
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0">Funcionário</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form asp-action="Atualizar" asp-antiforgery="true" method="post">
+                    <h6 class="heading-small text-muted mb-4">Informações</h6>
+                    <input type="hidden" asp-for="Matricula" />
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="Nome" class="form-control-label" for="input-username">Nome</label>
+                                    <input asp-for="Nome" type="text" id="input-nome" class="form-control" placeholder="Ex: Taylor Martins">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="CPF" class="form-control-label" for="input-username">CPF</label>
+                                    <input asp-for="CPF" type="number" id="input-cpf" class="form-control" placeholder="999.999.999-99">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="Setor" class="form-control-label" for="input-email">Setor</label>
+                                    <input asp-for="Setor" type="number" id="input-setor" class="form-control" placeholder="Id do Setor (Ex: 1, 2, 3 ...)">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="DataAdmissao" class="form-control-label" for="input">Data de Admissão</label>
+                                    <input asp-for="DataAdmissao" type="date" id="input-data-adm" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="Cargo" class="form-control-label" for="input-email">Cargo</label>
+                                    <input asp-for="Cargo" type="text" id="input-cargo" class="form-control" placeholder="Desenvolvedor">
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+                        <h6 class="heading-small text-muted mb-4">Contato</h6>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="Endereco" class="form-control-label" for="input">Endereço</label>
+                                    <input asp-for="Endereco" type="text" id="input-endereco" class="form-control" placeholder="Rua ABC 444...">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="Telefone" class="form-control-label" for="input">Telefone</label>
+                                    <input asp-for="Telefone" type="text" id="input-telefone" class="form-control" placeholder="51 99999-9999">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="Email" class="form-control-label" for="input-email">E-mail</label>
+                                    <input asp-for="Email" type="email" id="input-email" class="form-control" placeholder="email@exemplo.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+                        <h6 class="heading-small text-muted mb-4">Configurações</h6>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="Gestor" class="form-control-label" for="input-username">Gestor</label>
+                                    <select class="form-control" asp-for="Gestor" name="gestor" id="input-gestor">
+                                        <option value="True">Sim</option>
+                                        <option value="False">Não</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label asp-for="TipoNotificacao" class="form-control-label" for="input-username">Tipo Notificação</label>
+                                    <select class="form-control" asp-for="TipoNotificacao" name="tipo-notificacao" id="input-tipo-notificacao">
+                                        <option value="WhatsApp">WhatsApp</option>
+                                        <option value="E-mail">E-mail</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="text-center">
+                        <button id="botao-update" type="submit" class="btn btn-primary mt-4">Salvar</button>
+                        <button id="botao-excluir" class="btn btn-primary mt-4">Excluir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
