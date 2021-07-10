@@ -12,7 +12,7 @@
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col" class="sort" data-sort="id">Matrícula</th>
+                            @*<th scope="col" class="sort" data-sort="id">Matrícula</th>*@
                             <th scope="col" class="sort" data-sort="nome">Nome</th>
                             <th scope="col" class="sort" data-sort="telefone">Telefone</th>
                             <th scope="col" class="sort" data-sort="email">E-mail</th>
@@ -25,11 +25,15 @@
                         {
                             <tr>
 
+                                @*<td>
+                                    <a asp-action="Detalhes" asp-controller="Funcionario" asp-route-id="@funcionario.Matricula">
+                                        <span id="@funcionario.Matricula" class="name mb-0 text-sm">@funcionario.Matricula</span>
+                                    </a>
+                                </td>*@
                                 <td>
-                                    <span id="@funcionario.Matricula" class="name mb-0 text-sm">@funcionario.Matricula</span>
-                                </td>
-                                <td>
-                                    <span class="name mb-0 text-sm">@funcionario.Nome</span>
+                                    <a asp-action="Detalhes" asp-controller="Funcionario" asp-route-id="@funcionario.Matricula">
+                                        <span class="name mb-0 text-sm">@funcionario.Nome</span>
+                                    </a>
                                 </td>
                                 <td>
                                     <span class="name mb-0 text-sm">@funcionario.Telefone</span>
@@ -46,8 +50,8 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Editar">Editar</a>
-                                            <a class="dropdown-item" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Excluir">Excluir</a>
+                                            <a class="dropdown-item" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Detalhes" asp-route-id="@funcionario.Matricula">Editar</a>
+                                            <a class="dropdown-item" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Remover" asp-route-id="@funcionario.Matricula">Excluir</a>
                                         </div>
                                     </div>
                                 </td>
@@ -57,7 +61,7 @@
                 </table>
             </div>
             <!-- Card footer -->
-            <div class="card-footer py-4">
+            @*<div class="card-footer py-4">
                 <nav aria-label="...">
                     <ul class="pagination justify-content-end mb-0">
                         <li class="page-item disabled">
@@ -81,7 +85,7 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>

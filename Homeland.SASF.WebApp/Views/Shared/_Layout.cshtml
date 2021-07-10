@@ -371,5 +371,14 @@
     <script src="~/js/argon.js?v=1.2.0"></script>
     <!-- NotifyJs -->
     <script src="~/js/notify/notify.min.js"></script>
+    <!-- Especifico -->
+    <script>
+        $(function () {
+            $('#botao-excluir').click(function () {
+                $('form').attr('action', '/@ViewContext.RouteData.Values["controller"].ToString()/Remover');
+                $('form').submit();
+            });
+        });
+    </script>
 </body>
 </html>

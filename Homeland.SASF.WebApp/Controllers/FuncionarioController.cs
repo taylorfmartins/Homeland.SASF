@@ -17,6 +17,7 @@ namespace Homeland.SASF.WebApp.Controllers
         {
             _repo = repository;
         }
+
         private IEnumerable<Funcionario> Carregar()
         {
             return _repo.All
@@ -46,6 +47,42 @@ namespace Homeland.SASF.WebApp.Controllers
                 return RedirectToAction("Index", "Funcionario");
             }
             return View(model);
+        }
+
+        public IActionResult Detalhes(int id)
+        {
+            var model = RecuperarFuncionario(id);
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return View(model);
+        }
+
+        public IActionResult Atualizar(Funcionario model)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.Update(model);
+                return RedirectToAction("Index", "Funcionario");
+            }
+            return View(model);
+        }
+
+        public Funcionario RecuperarFuncionario(int id)
+        {
+            return _repo.Find(id);
+        }
+
+        public IActionResult Remover(Funcionario model)
+        {
+            var modelRemove = _repo.Find(model.Matricula);
+            if (modelRemove == null)
+            {
+                return NotFound();
+            }
+            _repo.Delete(modelRemove);
+            return RedirectToAction("Index", "Funcionario");
         }
     }
 }

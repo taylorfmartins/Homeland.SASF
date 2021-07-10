@@ -12,7 +12,7 @@
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col" class="sort" data-sort="id">Código</th>
+                            @*<th scope="col" class="sort" data-sort="id">Código</th>*@
                             <th scope="col" class="sort" data-sort="name">Descrição</th>
                             <th scope="col" class="sort" data-sort="budget">Responsável</th>
                             <th scope="col"></th>
@@ -21,36 +21,40 @@
                     <tbody class="list">
                         @foreach (var setor in Model.Setores)
                         {
-                        <tr>
+                            <tr>
 
-                            <td>
-                                <span class="name mb-0 text-sm">@setor.Id</span>
-                            </td>
-                            <td>
-                                <span class="name mb-0 text-sm">@setor.Nome</span>
-                            </td>
-                            <td>
-                                <span class="name mb-0 text-sm">@setor.MatriculaResponsavel</span>
-                            </td>
-
-                            <td class="text-right">
-                                <div class="dropdown">
-                                    <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v"></i>
+                                @*<td>
+                                    <a asp-action="Detalhes" asp-controller="Setor" asp-route-id="@setor.Id">
+                                        <span class="name mb-0 text-sm">@setor.Id</span>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                        <a class="dropdown-item" asp-controller="Setor" asp-action="Editar">Editar</a>
-                                        <a class="dropdown-item" asp-controller="Setor" asp-action="Excluir">Excluir</a>
+                                </td>*@
+                                <td>
+                                    <a asp-action="Detalhes" asp-controller="Setor" asp-route-id="@setor.Id">
+                                        <span class="name mb-0 text-sm">@setor.Nome</span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="name mb-0 text-sm">@setor.MatriculaResponsavel</span>
+                                </td>
+
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Detalhes" asp-route-id="@setor.Id">Editar</a>
+                                            <a class="dropdown-item" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" asp-action="Remover" asp-route-id="@setor.Id">Excluir</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>
             </div>
             <!-- Card footer -->
-            <div class="card-footer py-4">
+            @*<div class="card-footer py-4">
                 <nav aria-label="...">
                     <ul class="pagination justify-content-end mb-0">
                         <li class="page-item disabled">
@@ -74,7 +78,7 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>
