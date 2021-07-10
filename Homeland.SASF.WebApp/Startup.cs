@@ -1,5 +1,6 @@
 ﻿using Homeland.SASF.Model;
 using Homeland.SASF.Persistencia;
+using Homeland.SASF.WebApp.HttpClients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +40,12 @@ namespace Homeland.SASF.WebApp
 
             services.AddTransient<IRepository<Funcionario>, RepositorioBaseEF<Funcionario>>();
             services.AddTransient<IRepository<Setor>, RepositorioBaseEF<Setor>>();
+            services.AddTransient<IRepository<PetPerfeito>, RepositorioBaseEF<PetPerfeito>>();
+
+            services.AddHttpClient<PetPerfeitoApiClient>(client =>
+            {
+                client.BaseAddress = new Uri("http://petperfeito.kinghost.net/view/api.php?senha=e23e434r5443e33ee3e22");
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

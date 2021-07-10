@@ -1,44 +1,47 @@
-﻿@model FuncionarioViewModel
+﻿@model PetPerfeitoViewModel
 
 <div class="row">
     <div class="col">
         <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-                <h3 class="mb-0">Funcionários</h3>
+                <h3 class="mb-0">Pets (PetPerfeito)</h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col" class="sort" data-sort="id">Matrícula</th>
                             <th scope="col" class="sort" data-sort="nome">Nome</th>
-                            <th scope="col" class="sort" data-sort="telefone">Telefone</th>
-                            <th scope="col" class="sort" data-sort="email">E-mail</th>
-                            <th scope="col" class="sort" data-sort="cargo">Cargo</th>
+                            <th scope="col" class="sort" data-sort="especie">Espécie</th>
+                            <th scope="col" class="sort" data-sort="sexo">Sexo</th>
+                            <th scope="col" class="sort" data-sort="porte">Porte</th>
+                            <th scope="col" class="sort" data-sort="cidade">Cidade</th>
+                            <th scope="col" class="sort" data-sort="estado">Estado</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody class="list">
-                        @foreach (var funcionario in Model.Funcionarios)
+                        @foreach (var pet in Model.Pets)
                         {
                             <tr>
-
                                 <td>
-                                    <span id="@funcionario.Matricula" class="name mb-0 text-sm">@funcionario.Matricula</span>
+                                    <span class="name mb-0 text-sm">@pet.Nome</span>
                                 </td>
                                 <td>
-                                    <span class="name mb-0 text-sm">@funcionario.Nome</span>
+                                    <span class="name mb-0 text-sm">@pet.Especie</span>
                                 </td>
                                 <td>
-                                    <span class="name mb-0 text-sm">@funcionario.Telefone</span>
+                                    <span class="name mb-0 text-sm">@pet.Sexo</span>
                                 </td>
                                 <td>
-                                    <span class="name mb-0 text-sm">@funcionario.Email</span>
+                                    <span class="name mb-0 text-sm">@pet.Porte</span>
                                 </td>
                                 <td>
-                                    <span class="name mb-0 text-sm">@funcionario.Cargo</span>
+                                    <span class="name mb-0 text-sm">@pet.Cidade</span>
+                                </td>
+                                <td>
+                                    <span class="name mb-0 text-sm">@pet.Estado</span>
                                 </td>
                                 <td class="text-right">
                                     <div class="dropdown">
