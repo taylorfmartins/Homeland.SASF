@@ -7,6 +7,7 @@ namespace Homeland.SASF.Persistencia
     {
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Setor> Setors { get; set; }
+        public DbSet<PetPerfeito> Pets { get; set; }
 
         public SASFContext(DbContextOptions<SASFContext> options)
             : base(options)
@@ -20,7 +21,8 @@ namespace Homeland.SASF.Persistencia
             base.OnModelCreating(modelBuilder);
             modelBuilder
                 .ApplyConfiguration<Funcionario>(new FuncionarioConfiguration())
-                .ApplyConfiguration<Setor>(new SetorConfiguration());
+                .ApplyConfiguration<Setor>(new SetorConfiguration())
+                .ApplyConfiguration<PetPerfeito>(new PetPerfeitoConfiguration());
         }
     }
 }
