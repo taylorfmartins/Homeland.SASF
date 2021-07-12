@@ -1,6 +1,7 @@
 ﻿using Homeland.SASF.Model;
 using Homeland.SASF.Persistencia;
 using Homeland.SASF.WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Homeland.SASF.WebApp.Controllers
 {
+    [Authorize]
     public class SetorController : Controller
     {
         private readonly IRepository<Setor> _repo;
@@ -24,6 +26,7 @@ namespace Homeland.SASF.WebApp.Controllers
                 .ToList();
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var model = new SetorViewModel
@@ -34,11 +37,14 @@ namespace Homeland.SASF.WebApp.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Novo()
         {
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Adicionar(Setor model)
         {
             if (ModelState.IsValid)
@@ -49,6 +55,7 @@ namespace Homeland.SASF.WebApp.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Detalhes(int id)
         {
             var model = RecuperarSetor(id);
@@ -59,6 +66,8 @@ namespace Homeland.SASF.WebApp.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Atualizar(Setor model)
         {
             if (ModelState.IsValid)
@@ -74,9 +83,9 @@ namespace Homeland.SASF.WebApp.Controllers
             return _repo.Find(id);
         }
 
-        public IActionResult Remover(Setor model)
+        public IActionResult Remover(int id)
         {
-            var modelRemove = _repo.Find(model.Id);
+            var modelRemove = _repo.Find(id);
             if (modelRemove == null)
             {
                 return NotFound();
