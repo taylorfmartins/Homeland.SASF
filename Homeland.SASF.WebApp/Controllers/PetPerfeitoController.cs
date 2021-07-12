@@ -2,6 +2,7 @@
 using Homeland.SASF.Persistencia;
 using Homeland.SASF.WebApp.HttpClients;
 using Homeland.SASF.WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Homeland.SASF.WebApp.Controllers
 {
+    [Authorize]
     public class PetPerfeitoController : Controller
     {
         private readonly IRepository<PetPerfeito> _repo;
@@ -22,6 +24,7 @@ namespace Homeland.SASF.WebApp.Controllers
             _api = api;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             foreach (PetPerfeitoApi pet in ConsultarPetPerfeito())

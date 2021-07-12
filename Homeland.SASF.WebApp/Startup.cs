@@ -1,9 +1,11 @@
 ﻿using Homeland.SASF.Model;
 using Homeland.SASF.Persistencia;
+using Homeland.SASF.Security;
 using Homeland.SASF.WebApp.HttpClients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -38,6 +40,22 @@ namespace Homeland.SASF.WebApp
                 options.UseSqlServer(Configuration.GetConnectionString("SASF"));
             });
 
+            services.AddDbContext<AuthDbContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("AuthDB"));
+            });
+
+            services.AddIdentity<Usuario, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+            }).AddEntityFrameworkStores<AuthDbContext>();
+
+            services.ConfigureApplicationCookie(options => {
+                options.LoginPath = "/Usuario/Login";
+            });
+
             services.AddTransient<IRepository<Funcionario>, RepositorioBaseEF<Funcionario>>();
             services.AddTransient<IRepository<Setor>, RepositorioBaseEF<Setor>>();
             services.AddTransient<IRepository<PetPerfeito>, RepositorioBaseEF<PetPerfeito>>();
@@ -63,7 +81,7 @@ namespace Homeland.SASF.WebApp
             //}
 
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
