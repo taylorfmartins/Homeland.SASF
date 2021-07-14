@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Homeland.SASF.Model;
+using SASF.Persistencia.Configurations;
 
 namespace Homeland.SASF.Persistencia
 {
@@ -8,6 +9,7 @@ namespace Homeland.SASF.Persistencia
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Setor> Setors { get; set; }
         public DbSet<PetPerfeito> Pets { get; set; }
+        public DbSet<Ocorrencia> Ocorrencias { get; set; }
 
         public SASFContext(DbContextOptions<SASFContext> options)
             : base(options)
@@ -22,7 +24,8 @@ namespace Homeland.SASF.Persistencia
             modelBuilder
                 .ApplyConfiguration<Funcionario>(new FuncionarioConfiguration())
                 .ApplyConfiguration<Setor>(new SetorConfiguration())
-                .ApplyConfiguration<PetPerfeito>(new PetPerfeitoConfiguration());
+                .ApplyConfiguration<PetPerfeito>(new PetPerfeitoConfiguration())
+                .ApplyConfiguration<Ocorrencia>(new OcorrenciaConfiguration());
         }
     }
 }

@@ -59,6 +59,7 @@ namespace Homeland.SASF.WebApp
             services.AddTransient<IRepository<Funcionario>, RepositorioBaseEF<Funcionario>>();
             services.AddTransient<IRepository<Setor>, RepositorioBaseEF<Setor>>();
             services.AddTransient<IRepository<PetPerfeito>, RepositorioBaseEF<PetPerfeito>>();
+            services.AddTransient<IRepository<Ocorrencia>, RepositorioBaseEF<Ocorrencia>>();
 
             services.AddHttpClient<PetPerfeitoApiClient>(client =>
             {
