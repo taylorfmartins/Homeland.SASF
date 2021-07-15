@@ -61,6 +61,10 @@ namespace Homeland.SASF.WebApp
             services.AddTransient<IRepository<PetPerfeito>, RepositorioBaseEF<PetPerfeito>>();
             services.AddTransient<IRepository<Ocorrencia>, RepositorioBaseEF<Ocorrencia>>();
 
+            services.AddHttpClient<NotificationApiClient>(client =>
+            {
+                client.BaseAddress = new Uri("http://192.168.15.22:4000/notification/Notification/Send");
+            });
             services.AddHttpClient<PetPerfeitoApiClient>(client =>
             {
                 client.BaseAddress = new Uri("http://petperfeito.kinghost.net/view/api.php?senha=e23e434r5443e33ee3e22");

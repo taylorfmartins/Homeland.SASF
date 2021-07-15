@@ -6,7 +6,9 @@ namespace Homeland.SASF.Model
 {
     public class Notification
     {
-        public string message { get; set; }
-        public string phone { get; set; }
+        public string nome { get; set; }
+        public string email { get; set; }
+        public string telefone { get; set; }
+        public string tipo { get; set; }
     }
 }
