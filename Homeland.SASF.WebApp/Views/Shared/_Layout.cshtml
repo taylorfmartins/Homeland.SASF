@@ -321,7 +321,14 @@
                             </nav>
                         </div>
                         <div class="col-lg-6 col-5 text-right">
-                            <a asp-action="Novo" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" class="btn btn-sm btn-neutral">Novo</a>
+                            @if (@ViewContext.RouteData.Values["controller"].ToString() == "Home")
+                            {
+                            <a asp-action="Questionario" asp-controller="Home" class="btn btn-sm btn-neutral">Questionário</a>
+                            }
+                            else
+                            {
+                                <a asp-action="Novo" asp-controller="@ViewContext.RouteData.Values["controller"].ToString()" class="btn btn-sm btn-neutral">Novo</a>
+                            }
                         </div>
                     </div>
                 </div>

@@ -44,7 +44,6 @@ namespace Homeland.SASF.WebApp.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Adicionar(Funcionario model)
         {
             if (ModelState.IsValid)
@@ -67,7 +66,6 @@ namespace Homeland.SASF.WebApp.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Atualizar(Funcionario model)
         {
             if (ModelState.IsValid)
